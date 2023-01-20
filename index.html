@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <img class="img-spac" src="IMAGES/logohitam.png" alt="my logo" />
+      <header>Borang Permohonan Pinjaman Asset</header>
+      <form method="POST" action="" class="form" name="google-sheet">
+        <div class="column">
+          <div class="input-box">
+            <label>Nama</label>
+            <input type="text" placeholder="Nama penuh" name="Nama" required />
+          </div>
+          <div class="column"></div>
+          <div class="input-box">
+            <label>Bahagian</label>
+            <input
+              type="text"
+              placeholder="Nama Bahagian"
+              name="Nama"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>No. Phone</label>
+            <input
+              type="number"
+              placeholder="01269*****"
+              name="Phone Number"
+              required
+            />
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>No. ISN Pendaftaran</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+          <div class="column"></div>
+          <div class="input-box">
+            <label>Serial no.</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+          <div class="input-box">
+            <label>Nama Asset</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>No. ISN Pendaftaran</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+          <div class="column"></div>
+          <div class="input-box">
+            <label>Serial no.</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Nama Asset</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>No. ISN Pendaftaran</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+          <div class="column"></div>
+          <div class="input-box">
+            <label>Serial no.</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+
+          <div class="input-box">
+            <label>Nama Asset</label>
+            <input
+              type="text"
+              placeholder=""
+              name="NO. ISN Pendaftaran"
+              required
+            />
+          </div>
+        </div>
+          <div class="input-box">
+            <label>Tujuan</label>
+            <input
+              type="text"
+              placeholder="Pinjam SEAGAME"
+              name="Tujuan"
+              required
+            />
+          </div>
+        </div>
+        <div class="status-box">
+          <h3>Pilih status</h3>
+          <div class="status-option">
+            <div class="status">
+              <input type="radio" id="check-pinjam" name="status" required />
+              <label for="check-pinjam">Pinjam</label>
+            </div>
+            <div class="status">
+              <input type="radio" id="check-pulang" name="status" required />
+              <label for="check-pulang">Pulang</label>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Tarikh pinjam</label>
+            <input
+              type="date"
+              placeholder="Enter birth date"
+              name="Tarikh pinjam"
+              required
+            />
+          </div>
+          <div class="column">
+            <div class="input-box">
+              <label>Tarikh pulang</label>
+              <input
+                type="date"
+                placeholder="Enter birth date"
+                name="Tarikh pulang"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="SUBMIT" class="button" id="submit" />
+      </form>
+    </section>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbxZ1Rh01aQuP1dWLzW1rQc5qx1QDq202WSNzxD5Eyr8yVYnEwDbSRKUC7m1RFbuFbclKw/exec";
+      const form = document.forms["google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) =>
+            alert("Thank you! your form is submitted successfully.")
+          )
+          .then(() => {
+            window.location.reload();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
